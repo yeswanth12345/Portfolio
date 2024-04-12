@@ -39,7 +39,7 @@ function Aboutme(){
                 <div className="card2">
                     <h5>Hello, I'm Yeswanth sai Vuddula</h5>
                     <h6>
-                    An aspiring Software Engineer with over 1 year of Work Experience on multiple technologies actively seeking for Internship/ Co-op to utilize broad educational and professional background with excellent problem-solving, communicating, analyzing and programming skills.
+                    An aspiring data analyst/engineer with over 1 year of work experience on multiple technologies with expertise on Python, R, SQL, statistical analysis, predictive modeling, data visualization, and databases (MySQL, Microsoft & Oracle SQL Server), with excellent problem-solving, communicating, analyzing and programming skills.
                     </h6>
                     <ul>
                     <button type="button" onClick={()=>{window.open(Resume)}} className="btn btn-sm resumebtn">View Resume</button> 
