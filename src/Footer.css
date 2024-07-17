@@ -1,0 +1,46 @@
+.footer {
+    display: flex;
+    justify-content: center;
+    align-items:center;
+    padding: 25px;
+    background-color: #56B4BE;
+    color: #1F2833;
+  }
+  
+  .contact {
+    text-align: center;
+  }
+  
+  .git {
+    font-size: 24px;
+  }
+  
+  .contactlist {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    font-size: 18px;
+    margin-bottom: 20px;
+  }
+  
+  .contactlist li {
+    margin-bottom: 10px;
+  }
+  
+  .coniconslist {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+  }
+  
+  .conicons {
+    color: #1F2833;
+    margin: 0 15px;
+    cursor: pointer;
+  }
+  
+  .conicons:hover {
+    color: black;
+  }
+  

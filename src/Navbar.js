@@ -1,42 +1,49 @@
 import React from "react";
-import Resume from './Resume.pdf'
+import { motion } from "framer-motion";
+import Resume from './Resume.pdf';
+import './Navbar.css';
 
 function Navbar() {
+  const [mode, setMode] = React.useState('light');
 
-  const [mode, setMode] = React.useState({
-    className : "fa-solid fa-sun navitems"
-  })
+  const changeMode = () => {
+    setMode((prevMode) => (prevMode === 'light' ? 'dark' : 'light'));
+  };
 
-  function changeMode(){
-    setMode(()=>{
-      if(mode.className === "fa-solid fa-moon navitems"){
-        return{className:"fa-solid fa-sun navitems"}
-      }
-      else if(mode.className === "fa-solid fa-sun navitems"){
-        return{className:"fa-solid fa-moon navitems"}
-      }
-  })
-}
+  React.useEffect(() => {
+    if (mode === 'dark') {
+      document.body.style.backgroundColor = '#1F2833';
+      document.body.style.color = '#56B4BE';
+    } else {
+      document.body.style.backgroundColor = '#1F2833';
+      document.body.style.color = '#56B4BE';
+    }
+  }, [mode]);
 
-function viewResume(){
-  window.open(Resume);
-}
+  const viewResume = () => {
+    window.open(Resume);
+  };
 
-if((mode.className).includes("moon")){
-  document.body.style.backgroundColor = "white"
-  document.body.style.color = "black"
-}
-else if((mode.className).includes("sun")){
-  document.body.style.backgroundColor = "#91E0FF"           
-  document.body.style.color = "#1F2833"
-}
-
-return (
+  return (
     <nav className="navbar">
-      <h6 className="navitems">Yeswanth sai Vuddula</h6>
-      <div className="rightitems">
-        {/* <i onClick={changeMode} className={mode.className}></i> */}
-        <button type="button" onClick={viewResume} className="btn btn-sm resumebtn">Resume</button>
+      <motion.h6
+        className="nav-brand"
+        initial={{ x: -200 }}
+        animate={{ x: 0 }}
+        transition={{ type: 'spring', stiffness: 50 }}
+      >
+        Welcome to my Portfolio
+      </motion.h6>
+      <div className="nav-items">
+        <motion.button
+          type="button"
+          onClick={viewResume}
+          className="btn resumebtn"
+          whileHover={{ scale: 1.05 }}
+          whileTap={{ scale: 0.95 }}
+        >
+          Resume
+        </motion.button>
       </div>
     </nav>
   );

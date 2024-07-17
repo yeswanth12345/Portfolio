@@ -1,6 +1,7 @@
-import React from "react";
-import humanface from './humanface.jpeg'
-import Resume from './Resume.pdf'
+import React, { useState } from "react";
+import { motion } from "framer-motion";
+import humanface from './humanface.jpeg';
+import Resume from './Resume.pdf';
 import aws from './icons/aws.png';
 import azure from './icons/azure.png';
 import css from './icons/css.png';
@@ -14,60 +15,107 @@ import powerbi from './icons/Power-BI.png';
 import python from './icons/python.png';
 import r from './icons/R_logo.png';
 import react from './icons/react.jpg';
-import sqlserver from './icons/sqlserver.png';
 import tableau from './icons/tableau.png';
 
-function Aboutme(){
-    return(
+const Aboutme = () => {
+    const [isHovered, setIsHovered] = useState(false);
+
+    const handleMouseEnter = () => {
+        setIsHovered(true);
+    };
+
+    const handleMouseLeave = () => {
+        setIsHovered(false);
+    };
+
+    const variants = {
+        hovered: {
+            scale: 1.1,
+            transition: {
+                duration: 0.3,
+            },
+        },
+        notHovered: {
+            scale: 1,
+            transition: {
+                duration: 0.3,
+            },
+        },
+    };
+
+    const cardStyle = {
+        border: '1px solid #ccc',
+        borderRadius: '8px',
+        padding: '16px',
+        margin: '16px',
+        boxShadow: '0 0 10px rgba(0, 0, 0, 0.1)',
+        backgroundColor: isHovered ? '#f0f0f0' : '#ffffff',
+    };
+
+    return (
         <div className="aboutme">
             <h4>About Me</h4>
             <div className="aboutmecard">
                 <div className="card1">
                     <div className="card1img">
-                        <img className="myimage" src={humanface}></img>
+                        <motion.img
+                            className="myimage"
+                            src={humanface}
+                            whileHover={{ scale: 1.2 }}
+                        />
                     </div>
-                    {/* <div className="card1desc">
-                        <ul>
-                            <p>Name : Yeswanth sai Vuddula</p>
-                            <p>Profile : Software Engineer . Data Analyst</p>
-                            <p>Email : yvuddula@hawk.iit.edu</p>
-                            <p>Current Location : Chicago, Illinois</p>
-                            <button type="button" onClick={()=>{window.open(Resume)}} className="btn btn-sm resumebtn">View Resume</button>
-                        </ul>
-                    </div> */}
                 </div>
                 <div className="card2">
-                    <h5>Hello, I'm Yeswanth sai Vuddula</h5>
-                    <h6>
-                    An aspiring data analyst/engineer with over 1 year of work experience on multiple technologies with expertise on Python, R, SQL, statistical analysis, predictive modeling, data visualization, and databases (MySQL, Microsoft & Oracle SQL Server), with excellent problem-solving, communicating, analyzing and programming skills.
-                    </h6>
-                    <ul>
-                    <button type="button" onClick={()=>{window.open(Resume)}} className="btn btn-sm resumebtn">View Resume</button> 
-                    </ul>
+                    <motion.h3
+                        onMouseEnter={handleMouseEnter}
+                        onMouseLeave={handleMouseLeave}
+                        animate={isHovered ? "hovered" : "notHovered"}
+                        variants={variants}
+                    >
+                        Hi there! 
+                    </motion.h3>
+                    <motion.h3
+                        onMouseEnter={handleMouseEnter}
+                        onMouseLeave={handleMouseLeave}
+                        animate={isHovered ? "hovered" : "notHovered"}
+                        variants={variants}
+                    >
+                        I'm Yeswanth sai Vuddula 
+                    </motion.h3>
+                    <h7>
+                    A recently graduated student at Illinois Institute of Technology in Chicago, I bring over 1 year of professional experience as a Data Analyst/Engineer at Cognizant, along with valuable internship experiences at Cognizant and Evolet Technologies. During my undergraduate studies, I developed a robust foundation in various technologies and honed my skills in data analysis, data engineering, and software development.
+                    </h7>
+                    <motion.button
+                        whileHover={{ scale: 1.1 }}
+                        whileTap={{ scale: 0.9 }}
+                        onClick={() => { window.open(Resume) }}
+                        className="btn btn-sm resumebtn"
+                    >
+                        View Resume
+                    </motion.button>
                 </div>
             </div>
             <div className="skills">
                 <h5>Skills</h5><br/>
                 <div className="skill-imgs">
-                    <img className="skill-img" src={aws}/>
-                    <img className="skill-img" src={azure}/>
-                    <img className="skill-img" src={css}/>
-                    <img className="skill-img" src={html}/>
-                    <img className="skill-img" src={excel}/>
-                    <img className="skill-img" src={git}/>
-                    <img className="skill-img" src={hadoop}/>
-                    <img className="skill-img" src={java}/>
-                    <img className="skill-img" src={mysql}/>
-                    <img className="skill-img" src={powerbi}/>
-                    <img className="skill-img" src={python}/>
-                    <img className="skill-img" src={r}/>
-                    <img className="skill-img" src={react}/>
-                    {/* <img className="skill-img" src={sqlserver}/> */}
-                    <img className="skill-img" src={tableau}/>
+                    <motion.img className="skill-img" src={aws} whileHover={{ scale: 1.1 }} />
+                    <motion.img className="skill-img" src={azure} whileHover={{ scale: 1.1 }} />
+                    <motion.img className="skill-img" src={css} whileHover={{ scale: 1.1 }} />
+                    <motion.img className="skill-img" src={html} whileHover={{ scale: 1.1 }} />
+                    <motion.img className="skill-img" src={excel} whileHover={{ scale: 1.1 }} />
+                    <motion.img className="skill-img" src={git} whileHover={{ scale: 1.1 }} />
+                    <motion.img className="skill-img" src={hadoop} whileHover={{ scale: 1.1 }} />
+                    <motion.img className="skill-img" src={java} whileHover={{ scale: 1.1 }} />
+                    <motion.img className="skill-img" src={mysql} whileHover={{ scale: 1.1 }} />
+                    <motion.img className="skill-img" src={powerbi} whileHover={{ scale: 1.1 }} />
+                    <motion.img className="skill-img" src={python} whileHover={{ scale: 1.1 }} />
+                    <motion.img className="skill-img" src={r} whileHover={{ scale: 1.1 }} />
+                    <motion.img className="skill-img" src={react} whileHover={{ scale: 1.1 }} />
+                    <motion.img className="skill-img" src={tableau} whileHover={{ scale: 1.1 }} />
                 </div>
             </div>
         </div>
-    )
-}
+    );
+};
 
 export default Aboutme;
