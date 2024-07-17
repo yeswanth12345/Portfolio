@@ -85,14 +85,7 @@ const Aboutme = () => {
                     <h7>
                     A recently graduated student at Illinois Institute of Technology in Chicago, I bring over 1 year of professional experience as a Data Analyst/Engineer at Cognizant, along with valuable internship experiences at Cognizant and Evolet Technologies. During my undergraduate studies, I developed a robust foundation in various technologies and honed my skills in data analysis, data engineering, and software development.
                     </h7>
-                    <motion.button
-                        whileHover={{ scale: 1.1 }}
-                        whileTap={{ scale: 0.9 }}
-                        onClick={() => { window.open(Resume) }}
-                        className="btn btn-sm resumebtn"
-                    >
-                        View Resume
-                    </motion.button>
+                    
                 </div>
             </div>
             <div className="skills">
